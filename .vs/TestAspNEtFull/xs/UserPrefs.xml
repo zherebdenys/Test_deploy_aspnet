@@ -1,0 +1,37 @@
+﻿<Properties StartupConfiguration="{88F52B11-74C0-4174-95EF-987A8EE0B839}|http">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.TestAspNEtFull PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TestAspNEtFull/Controllers/TodoController.cs">
+    <Files>
+      <File FileName="TestAspNEtFull/Program.cs" />
+      <File FileName="TestAspNEtFull/Models/TodoItem.cs" />
+      <File FileName="TestAspNEtFull/Validatiors/TodoItemValidator.cs" />
+      <File FileName="TestAspNEtFull/Providers/MobgoDBClient.cs" />
+      <File FileName="TestAspNEtFull/Services/TodoItemService.cs" />
+      <File FileName="TestAspNEtFull/Controllers/TodoController.cs" Line="95" Column="16" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TestAspNEtFull" expanded="True">
+            <Node name="TestAspNEtFull" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="TodoController.cs" selected="True" />
+              </Node>
+              <Node name="Entities" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Providers" expanded="True" />
+              <Node name="Services" expanded="True" />
+              <Node name="Validatiors" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+</Properties>
