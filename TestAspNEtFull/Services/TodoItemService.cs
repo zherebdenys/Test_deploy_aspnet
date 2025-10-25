@@ -1,7 +1,6 @@
 ﻿using System;
-using MongoDB.Driver;
 using TestAspNEtFull.Entities;
-using TestAspNEtFull.Providers;
+using TestAspNEtFull.Repositories;
 
 namespace TestAspNEtFull.Services;
 
@@ -14,40 +13,38 @@ public interface ITodoService
     Task DeleteAsync(string id);
 }
 
-public class TodoItemService : ITodoService
+public class TodoService : ITodoService
 {
-    private IMongoCollection<TodoItemEntity> _collection;
+    private readonly ITodoRepository _todoRepository;
 
-    public TodoItemService()
+    public TodoService(ITodoRepository todoRepository)
 	{
-        _collection = MobgoDBClient.Instance.GetCollection<TodoItemEntity>("TodoItems");
+        _todoRepository = todoRepository;
     }
 
     public async Task<TodoItemEntity> CreateAsync(TodoItemEntity todoItem)
     {
-        await _collection.InsertOneAsync(todoItem);
-
-        return todoItem;
+        return await _todoRepository.CreateAsync(todoItem);
     }
 
     public async Task DeleteAsync(string id)
     {
-        await _collection.DeleteOneAsync(x => x.Id == id);
+        await _todoRepository.DeleteAsync(id);
     }
 
     public async Task<List<TodoItemEntity>> GetAsync()
     {
-        return await _collection.Find(x => true).ToListAsync();
+        return await _todoRepository.GetAsync();
     }
 
     public async Task<TodoItemEntity> GetAsync(string id)
     {
-        return await _collection.Find(x => x.Id == id).FirstOrDefaultAsync();
+        return await _todoRepository.GetAsync(id);
     }
 
     public async Task UpdateAsync(TodoItemEntity todoItem)
     {
-        await _collection.ReplaceOneAsync(x => x.Id == todoItem.Id, todoItem);
+        await _todoRepository.UpdateAsync(todoItem);
     }
 }
 

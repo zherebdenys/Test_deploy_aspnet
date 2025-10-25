@@ -19,6 +19,7 @@
     <None Remove="Providers\" />
     <None Remove="Entities\" />
     <None Remove="Services\" />
+    <None Remove="Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -26,5 +27,6 @@
     <Folder Include="Providers\" />
     <Folder Include="Entities\" />
     <Folder Include="Services\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
 </Project>

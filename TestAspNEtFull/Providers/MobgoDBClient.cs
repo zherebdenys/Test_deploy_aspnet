@@ -15,7 +15,7 @@ public class MobgoDBClient
 
     private MobgoDBClient()
     {
-        var connectionString = "mongodb+srv://zherebdenyshpk_db_user:rLiEhm8uDiyc7GYG@cluster0.9oyqfll.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"; // або URI від MongoDB Atlas
+        var connectionString = "mongodb+srv://zherebdenyshpk_db_user:K4bP3i4aRkh96DSa@cluster0.cux4gv7.mongodb.net/?appName=Cluster0"; // або URI від MongoDB Atlas
         var client = new MongoClient(connectionString);
         _db = client.GetDatabase("Test1");
 

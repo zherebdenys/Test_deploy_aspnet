@@ -15,30 +15,25 @@ namespace TestAspNEtFull.Controllers;
 [Route("api/[controller]")]
 public class TodoController : ControllerBase
 {
-    private readonly TodoItemService _service;
-    private static List<TodoItem> todos = new()
-    {
-        new TodoItem { Id = 1, Name = "Вивчити ASP.NET Core Web API", IsComplete = true },
-        new TodoItem { Id = 2, Name = "Створити власний ToDo контролер", IsComplete = false }
-    };
+    private readonly ITodoService _todoService;
 
-    public TodoController()
+    public TodoController(ITodoService todoService)
     {
-        _service = new();
+        _todoService = todoService;
     }
 
     // GET: api/values
     [HttpGet]
     public async Task<IActionResult> Get()
     {
-        return Ok(await _service.GetAsync());
+        return Ok(await _todoService.GetAsync());
     }
 
     // GET api/values/5
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(string id)
     {
-        var todo = await _service.GetAsync(id);
+        var todo = await _todoService.GetAsync(id);
 
         if (todo == null)
             return NotFound($"Завдання з ID={id} не знайдено.");
@@ -50,7 +45,7 @@ public class TodoController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post([FromBody]TodoItem newTodo)
     {
-        var item = await _service.CreateAsync(new TodoItemEntity()
+        var item = await _todoService.CreateAsync(new TodoItemEntity()
         {
             Name = newTodo.Name,
             IsComplete = newTodo.IsComplete
@@ -64,7 +59,7 @@ public class TodoController : ControllerBase
     public async Task<IActionResult> Put(string id, [FromBody] TodoItem updatedTodo)
     {
 
-        var todo = await _service.GetAsync(id);
+        var todo = await _todoService.GetAsync(id);
 
         if (todo == null)
             return NotFound($"Завдання з ID={id} не знайдено.");
@@ -76,7 +71,7 @@ public class TodoController : ControllerBase
             IsComplete = updatedTodo.IsComplete
         };
 
-        await _service.UpdateAsync(newUpdatedEntity);
+        await _todoService.UpdateAsync(newUpdatedEntity);
 
         return NoContent();
     }
@@ -85,12 +80,12 @@ public class TodoController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(string id)
     {
-        var todo = await _service.GetAsync(id);
+        var todo = await _todoService.GetAsync(id);
 
         if (todo == null)
             return NotFound($"Завдання з ID={id} не знайдено.");
 
-        await _service.DeleteAsync(id);
+        await _todoService.DeleteAsync(id);
 
         return NoContent();
     }
