@@ -1,7 +1,0 @@
-﻿@TestAspNEtFull_HostAddress = http://localhost:5207
-
-GET {{TestAspNEtFull_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
-
