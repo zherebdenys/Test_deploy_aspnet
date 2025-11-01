@@ -26,17 +26,27 @@ public class JwtTokenGenerator
         _jwtSettings = jwtOptions.Value;
     }
 
-    public string Generate(User user)
+    public string Generate(User user, Roles roles = Roles.User)
     {
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.SecretKey));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-        var claims = new[]
-        {
+        var claims = new List<Claim> {
             new Claim(JwtRegisteredClaimNames.Sub, user.Id),
             new Claim(JwtRegisteredClaimNames.Email, user.Email),
-            new Claim("username", user.Username)
+            new Claim(JwtRegisteredClaimNames.Name, user.Username),
         };
+
+        // додаємо claim на кожен прапорець
+        foreach (Roles role in Enum.GetValues(typeof(Roles)))
+        {
+            if (role == Roles.None) continue;
+            if (roles.HasFlag(role))
+                claims.Add(new Claim(ClaimTypes.Role, role.ToString()));
+        }
+
+        // Додай ще claim із числовим значенням ролей
+        claims.Add(new Claim("rolesValue", ((int)roles).ToString()));
 
         var token = new JwtSecurityToken(
             issuer: _jwtSettings.Issuer,

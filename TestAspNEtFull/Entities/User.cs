@@ -18,4 +18,7 @@ public class User
 
     [BsonElement("passwordHash")]
     public string Password { get; set; } = string.Empty;
+
+    [BsonElement("role")]
+    public Roles Role { get; set; } = Roles.User;
 }

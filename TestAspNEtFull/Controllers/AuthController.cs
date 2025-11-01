@@ -57,7 +57,7 @@ public class AuthController : ControllerBase
         if (user.Password != _passwordHasher.HashPassword(model.Password))
             return Unauthorized("Непраивльний пароль.");
 
-        var token = _jwtTokenGenerator.Generate(user);
+        var token = _jwtTokenGenerator.Generate(user, user.Role);
         return Ok(new { Token = token });
     }
 }
