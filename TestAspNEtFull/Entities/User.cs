@@ -21,4 +21,10 @@ public class User
 
     [BsonElement("role")]
     public Roles Role { get; set; } = Roles.User;
+
+    [BsonElement("refreshToken")]
+    public string? RefreshToken { get; set; }
+
+    [BsonElement("refreshTokenExpiryTime")]
+    public DateTime? RefreshTokenExpiryTime { get; set; }
 }
