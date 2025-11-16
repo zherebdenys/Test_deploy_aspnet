@@ -22,14 +22,9 @@ public class TodoController : ControllerBase
         _todoService = todoService;
     }
 
-    // GET: api/values
     [HttpGet]
-    public async Task<IActionResult> Get()
-    {
-        return Ok(await _todoService.GetAsync());
-    }
+    public async Task<IActionResult> Get() => Ok(await _todoService.GetAsync());
 
-    // GET api/values/5
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(string id)
     {
@@ -41,7 +36,6 @@ public class TodoController : ControllerBase
         return Ok(todo);
     }
 
-    // POST api/values
     [HttpPost]
     public async Task<IActionResult> Post([FromBody]TodoItem newTodo)
     {
@@ -54,7 +48,6 @@ public class TodoController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = item.Id }, item);
     }
 
-    // PUT api/values/5
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(string id, [FromBody] TodoItem updatedTodo)
     {
@@ -76,7 +69,6 @@ public class TodoController : ControllerBase
         return NoContent();
     }
 
-    // DELETE api/values/5
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(string id)
     {

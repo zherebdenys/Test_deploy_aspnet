@@ -3,12 +3,20 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using MongoDB.Driver;
 using TestAspNEtFull.Helpers;
 using TestAspNEtFull.Repositories;
 using TestAspNEtFull.Services;
 using TestAspNEtFull.Validatiors;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(Int32.Parse(port));
+});
 
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 
@@ -50,8 +58,18 @@ builder.Services.AddSwaggerGen(c =>
 // Реєструємо всі валідатори автоматично
 builder.Services.AddValidatorsFromAssemblyContaining<TodoItemValidator>();
 
+builder.Services.AddSingleton<IMongoClient>(sp =>
+    new MongoClient("mongodb+srv://zherebdenyshpk_db_user:K4bP3i4aRkh96DSa@cluster0.cux4gv7.mongodb.net/?appName=Cluster0"));
+
+builder.Services.AddSingleton(sp =>
+{
+    var client = sp.GetRequiredService<IMongoClient>();
+    return client.GetDatabase("Test1");
+});
+
 builder.Services.AddTransient<ITodoRepository, TodoRepository>();
 builder.Services.AddTransient<ITodoService, TodoService>();
+
 
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IUserService, UserService>();
@@ -95,3 +113,4 @@ app.MapControllers();
 
 app.Run();
 
+public partial class Program { }
