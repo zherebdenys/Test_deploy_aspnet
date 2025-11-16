@@ -1,33 +1,51 @@
-﻿<Properties StartupConfiguration="{88F52B11-74C0-4174-95EF-987A8EE0B839}|http">
-  <MonoDevelop.Ide.Workbench ActiveDocument="UnitTests/UnitTest1.cs">
+﻿<Properties StartupConfiguration="{41E78AEB-0A55-4FE8-ADFD-70044B1B8A27}|Unit Tests">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.TestAspNEtFull PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.UnitTests PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TestAspNEtFull/Program.cs">
     <Files>
-      <File FileName="TestAspNEtFull/Entities/User.cs" Line="24" Column="1" />
-      <File FileName="TestAspNEtFull/Helpers/JwtService.cs" Line="53" Column="1" />
-      <File FileName="TestAspNEtFull/Controllers/RolesDemoController.cs" Line="29" Column="24" />
-      <File FileName="TestAspNEtFull/Controllers/AuthController.cs" Line="118" Column="6" />
-      <File FileName="TestAspNEtFull/Program.cs" Line="76" Column="34" />
-      <File FileName="TestAspNEtFull/Controllers/TestController.cs" Line="1" Column="1" />
-      <File FileName="TestAspNEtFull/appsettings.json" Line="14" Column="32" />
-      <File FileName="UnitTests/UnitTest1.cs" Line="1" Column="1" />
+      <File FileName="TestAspNEtFull/Repositories/TodoRepositiry.cs" Line="38" Column="2" />
+      <File FileName="TestAspNEtFull/Services/TodoItemService.cs" Line="34" Column="2" />
+      <File FileName="TestAspNEtFull/Controllers/TodoController.cs" Line="84" Column="2" />
+      <File FileName="TestAspNEtFull/Program.cs" Line="19" Column="4" />
+      <File FileName="TestAspNEtFull/appsettings.json" Line="1" Column="1" />
+      <File FileName="TestAspNEtFull/Providers/MobgoDBClient.cs" Line="18" Column="133" />
+      <File FileName="TestAspNEtFull/Entities/TodoItemEntity.cs" Line="7" Column="1" />
+      <File FileName="UnitTests/CustomWebApplicationFactory.cs" Line="48" Column="2" />
+      <File FileName="UnitTests/BaseIntegrationTest.cs" Line="9" Column="41" />
+      <File FileName="UnitTests/TodoControllerTests.cs" Line="78" Column="20" />
+      <File FileName="UnitTests/DatabaseSeeder.cs" Line="34" Column="2" />
+      <File FileName="UnitTests/TodoControllerParameterizedTests.cs" Line="5" Column="21" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="TestAspNEtFull">
-            <Node name="UnitTests" expanded="True" selected="True">
-              <Node name="Dependencies" expanded="True" />
+            <Node name="TestAspNEtFull" expanded="True">
+              <Node name="Entities" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Providers" expanded="True" />
+              <Node name="Repositories" expanded="True" />
+              <Node name="Services" expanded="True" />
+            </Node>
+            <Node name="UnitTests" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="ProjectDependencies" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="TestAspNEtFull" selected="True" />
+        </State>
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.TestAspNEtFull PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.UnitTests FirstBuild="True" />
 </Properties>
